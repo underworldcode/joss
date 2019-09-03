@@ -1,5 +1,5 @@
 ---
-title: 'Underworld2: Python geodynamics modelling for desktop, HPC and cloud.'
+title: 'Underworld2: Python Geodynamics Modelling for Desktop, HPC and Cloud'
 tags:
   - Python
   - geodynamics
