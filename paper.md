@@ -36,7 +36,7 @@ affiliations:
    index: 2
  - name: Research School of Earth Sciences, The Australian National University, Canberra, Australia
    index: 3
-date: 23 August 2019
+date: 03 September 2019
 bibliography: paper.bib
 ---
 
@@ -47,10 +47,12 @@ Rheological behaviours are diverse and modellers often wish to investigate a spe
 
 Designed to work (almost) seamlessly across PC, cloud and HPC infrastructure, ``Underworld2`` consists of a set of Python classes, instances of which will be used to construct numerical geodynamics models. The API also provides the tools required for inline analysis and data management. `Underworld2` continues the legacy of Underworld1 [@MoresiEtAl2002] [@MoresiEtAl2003] [@MoresiEtAl2007], sharing much of the underlying mathematical approach. But `Underworld2` is not a Python wrapper to Underworld1, and modelling paradigms have been completely redesigned to best fit the Python language. 
 
-`Underworld2` provides capacity for modelling 2- and 3-dimensional geodynamics processes, utilising a particle-in-cell finite element approach for solution to Stokes flow type configurations. For the multi-processor scalability required of high-resolution models, MPI (Message Passing Interface) is leveraged, and for performant operation all heavy computations are executed within a statically typed layer.
+`Underworld2` provides capacity for modelling 2- and 3-dimensional geodynamics processes, utilising a particle-in-cell finite element approach for solution to Stokes flow type configurations. For the multi-processor scalability required of high-resolution models, we use MPI (Message Passing Interface) based domain-decomposition, and for performant operation all heavy computations are executed within a statically typed layer.
 In `Underworld2`, the finite element mesh can be static or dynamic, but it is not constrained to move in lock-step with the evolving geometry of the fluid. This hybrid approach allows for the accurate solution to the velocity problem (on the mesh) for a given material configuration, while simultaneously ensuring the accurate tracking of material interfaces and history information (using particle swarms). Templated systems are provided for solution to Stokes flow, steady state heat (or Darcy) flow, and time-dependent advection-diffusion models. 
 
-A primary aim of `Underworld2` is to enable rapid and frictionless model development. To this end, the rich syntactic possibilities of Python have been leveraged empowering users with intuitive access to complex operations, while paternalistic patterns keep users safe and guarantee data integrity. By design, `Underworld2` provides only a minimal set of flexible core functionality, and leaves _user domain_ concerns to the users themselves to construct. At the centre of this design is the _Function_ class, which aims to provide a natural interface for the description of problem dynamics. For example, the user may describe a viscosity which is piecewise constant, temperature dependent, or visco-elasto-plastic in behaviour. Simulation chronology is also fully exposed and the user is expected to explicitly specify when events should occur. This free-form approach allows users to define exactly the physics they require, and more importantly provides transparency. It also prevents API bloat, helping to ensure the long term viability of the project. 
+A primary aim of `Underworld2` is to enable rapid and frictionless model development. To this end, the rich syntactic possibilities of Python have been leveraged empowering users with intuitive access to complex operations, while paternalistic patterns help to guarantee data integrity and ensure consistent parallel operation. By design, `Underworld2` provides only a minimal set of flexible core functionality, and leaves _user domain_ concerns to the users themselves to construct. At the centre of this design is the _Function_ class, which aims to provide a natural interface for the description of problem dynamics. For example, the user may describe a viscosity which is piecewise constant, temperature dependent, or visco-elasto-plastic in behaviour. Simulation chronology is also fully exposed and the user is expected to explicitly specify when events should occur. This free-form approach allows users to define exactly the physics they require, and more importantly provides transparency. 
+
+<!-- It also prevents API bloat, helping to ensure the long term viability of the project. -->
 
 Although not a requirement, `Underworld2` is very much at home within the Jupyter [@Kluyver:2016aa] environment. When coupled with the `lavavu` [owen_kaluza_2019_3348451] visualisation engine, users are able to interactively develop models piecemeal. Jupyter also provides a path to cloud amenability, with users accessing their model Notebooks via any standard web browser. Cloud based operation has been used successfully within teaching environments, and also enables our _live_ user documentation and examples. 
 
@@ -58,6 +60,5 @@ Although not a requirement, `Underworld2` is very much at home within the Jupyte
 
 # Acknowledgements
 
-Underworld development was financially supported by AuScope and the Australian Government via the National Collaborative Research Infrastructure Strategy (NCRIS): (auscope.org.au). Additional funding for specific improvements and additional functionality has come from the Australian Research Council (http://www.arc.gov.au). The Python tool-kit was funded by the NeCTAR e-research_tools program. Underworld was originally developed in collaboration with the Victorian Partnership for Advanced Computing.
-
+Underworld development was financially supported by AuScope and the Australian Government via the National Collaborative Research Infrastructure Strategy (NCRIS): (auscope.org.au). Additional funding for specific improvements and additional functionality has come from the Australian Research Council (http://www.arc.gov.au). The Python tool-kit was funded by the NeCTAR e-research_tools program.
 
